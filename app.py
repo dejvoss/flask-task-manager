@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
-if os.path.exist("env.py"):
+if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ mongo = PyMongo(app)
 
 
 @app.route('/')
-@app.rout('/get_tasks')
+@app.route('/get_tasks')
 def get_tasks():
     return render_template("tasks.html", tasks=mongo.db.tasks.find())
 

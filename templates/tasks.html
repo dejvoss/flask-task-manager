@@ -6,11 +6,11 @@
 
 <body>
 	{% for tasks in tasks %}
-	{{task.task_name}}
-	{{task.category_name}}
-	{{task.task_description}}
-	{{task.is_urgent}}
-	{{task.due_date}}
+	{{tasks.task_name}}
+	{{tasks.category_name}}
+	{{tasks.task_description}}
+	{{tasks.is_urgent}}
+	{{tasks.due_date}}
 	{% endfor %}
 </body>
 
