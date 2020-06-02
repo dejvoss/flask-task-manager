@@ -1,4 +1,8 @@
 {% extends 'base.html' %} {% block content %}
+<h3>Task overview</h3>
+<div style="text-align:center">
+ <a class="btn-floating btn-large waves-effect waves-light red" href="{{ url_for('add_task') }}"><i class="material-icons">add</i></a>
+</div>
 <ul class="collapsible">
   {% for tasks in tasks %}
   <li>
