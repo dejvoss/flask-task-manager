@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<h1>Task Manager!</h1>
+
 	{% block content %}
 	{% endblock %}
 
@@ -19,7 +19,16 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
     $('.collapsible').collapsible();
+    $('.datepicker').datepicker();
+     $('select').formSelect();
+
   });
+
+//   $(document).ready(function(){
+//     $('.datepicker').datepicker();
+//   });
+
+
 	</script>
 
 </body>
