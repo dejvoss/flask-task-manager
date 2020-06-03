@@ -3,17 +3,17 @@
 <h3>Add tasks</h3>
 
 <div class="row">
-    <form class="col s12">
+    <form action="" method="POST" class="col s12">
       <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">First Name</label>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">assignment</i>
+          <input id="task_name" name="task_name" type="text" class="validate">
+          <label for="icon_prefix">Task Name</label>
         </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">phone</i>
-          <input id="icon_telephone" type="tel" class="validate">
-          <label for="icon_telephone">Telephone</label>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">subject</i>
+          <input id="task_description" type="textarea" name="task_description" class="materialize-textarea">
+          <label for="icon_telephone">Task description</label>
         </div>
       </div>
     </form>
