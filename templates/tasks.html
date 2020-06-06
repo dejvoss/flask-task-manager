@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Task overview</h3>
+<div class="row">
 <div style="text-align:center">
  <a class="btn-floating btn-large waves-effect waves-light red" href="{{ url_for('add_task') }}"><i class="material-icons">add</i></a>
 </div>
@@ -7,13 +8,22 @@
   {% for tasks in tasks %}
   <li>
     <div class="collapsible-header">
-      <i class="material-icons">expand_more</i>
-      <strong>{{tasks.task_name}} </strong> - {{tasks.due_date}} 
-        {% if tasks.is_urgent  == True %}
+      <div class="col s3">
+        <i class="material-icons">expand_more</i>
+        <a class="waves-effect waves-light btn btn_small ">done</a>
+        <a class="waves-effect waves-light btn btn_small blue">edit</a>
+        
+      </div>
+      <div class="task_header col s9">
+        <strong>{{tasks.task_name}} </strong> - {{tasks.due_date}} 
+        {% if tasks.is_urgent  == 'on' %}
             <span class="material-icons">priority_high</span>         
         {% else %}
            
         {% endif %}
+      </div>
+      
+
     </div>
     <div class="collapsible-body">
       <span> {{tasks.task_description}}</span>
@@ -22,4 +32,5 @@
 
   {% endfor %}
 </ul>
+</div>
 {% endblock %}
