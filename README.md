@@ -1,4 +1,19 @@
-# Task manager as putting all together mini project during learning in code institute.
+# Task manager - Flask App
 
-This project is an outpout of study in code institute. It is a end of the python, mongoDB and flask lessons.
-Base idea is to build a task manager. The idea is from code institute and  basically a following the instructions from lessons.
+Simple task manager app built with Flask and MongoDB.
+
+## Installation
+
+1. Clone the repository
+2. Create a virtual environment
+3. Install the requirements
+4. Add your MongoDB URI to the config.py file or to the environment variables
+5. Run the app
+
+## Usage
+
+- Create, update and delete tasks
+- Mark tasks as completed
+- Create, update and delete categories
+- Assign tasks to categories
+
