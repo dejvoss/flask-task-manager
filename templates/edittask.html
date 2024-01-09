@@ -5,6 +5,7 @@
     <div class="row">
         <form action="{{ url_for('edit_task', task_id=task._id) }}" method="POST" class="col s12">
             {{ form.hidden_tag() }}
+
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
@@ -45,7 +46,9 @@
                 </div>
             </div>
             <div class="row">
-                {{ form.submit(class="btn waves-effect waves-light") }}
+                <button class="btn waves-effect waves-light" type="submit" name="action">Update
+                    <i class="material-icons right">send</i>
+                </button>
             </div>
         </form>
     </div>

@@ -1,36 +1,41 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Task overview</h3>
-<div class="row">
-<div style="text-align:center">
- <a class="btn-floating btn-large waves-effect waves-light red" href="{{ url_for('add_task') }}"><i class="material-icons">add</i></a>
-</div>
-<ul class="collapsible">
-  {% for tasks in tasks %}
-  <li>
-    <div class="collapsible-header">
-      <div class="col s3">
-        <i class="material-icons">expand_more</i>
-        <a href="{{url_for('delete_task', task_id=tasks._id)}}" class="waves-effect waves-light btn btn_small ">done</a>
-        <a href="{{url_for('edit_task', task_id=tasks._id)}}"class="waves-effect waves-light btn btn_small blue">edit</a>
-        
-      </div>
-      <div class="task_header col s9">
-        <strong>{{tasks.task_name}} </strong> - {{tasks.due_date}} 
-        {% if tasks.is_urgent  == 'on' %}
-            <span class="material-icons">priority_high</span>         
-        {% else %}
-           
-        {% endif %}
-      </div>
-      
+    <h3>Task overview</h3>
+    <div class="row">
+        <div style="text-align:center">
+            <a class="btn-floating btn-large waves-effect waves-light red" href="{{ url_for('add_task') }}"><i
+                    class="material-icons">add</i></a>
+        </div>
+        <ul class="collapsible">
+            {% for tasks in tasks %}
+                
+                <li>
+                    <div class="collapsible-header">
+                        <div class="col s3">
+                            <i class="material-icons">expand_more</i>
+                            <a href="{{ url_for('delete_task', task_id=tasks._id) }}"
+                               class="waves-effect waves-light btn btn_small ">done</a>
+                            <a href="{{ url_for('edit_task', task_id=tasks._id) }}"
+                               class="waves-effect waves-light btn btn_small blue">edit</a>
 
-    </div>
-    <div class="collapsible-body">
-      <span> {{tasks.task_description}}</span>
-    </div>
-  </li>
+                        </div>
 
-  {% endfor %}
-</ul>
-</div>
+                        <div class="task_header col s9">
+                            <strong>{{ tasks.task_name }} </strong> - {{ tasks.due_date }}
+                            {% if tasks.is_urgent  == 'y' %}
+                                <span class="material-icons">priority_high</span>
+                            {% else %}
+
+                            {% endif %}
+                        </div>
+
+
+                    </div>
+                    <div class="collapsible-body">
+                        <span> {{ tasks.task_description }}</span>
+                    </div>
+                </li>
+
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}

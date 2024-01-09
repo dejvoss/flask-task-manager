@@ -26,28 +26,23 @@ def get_tasks():
 def add_task():
     categories = [category['category_name'] for category in mongo.db.categories.find()]
     form = AddTaskForm(categories)
-    print(form.due_date.data)
-    if form.validate_on_submit():
 
+    if form.validate_on_submit():
         tasks = mongo.db.tasks
         tasks.insert_one(request.form.to_dict())
         return redirect(url_for('get_tasks'))
-    else:
-        print(form.errors)
-        print(form.due_date.data)
 
     return render_template('add_task.html', form=form)
 
 
 @app.route('/edit_task/<task_id>', methods=['GET', 'POST'])
 def edit_task(task_id):
-    print(task_id)
     the_task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
-    print(the_task)
     categories = [category['category_name'] for category in mongo.db.categories.find()]
     form = EditTaskForm(categories)
-    the_task['due_date'] = datetime.strptime(the_task['due_date'], '%Y-%m-%d')
-    form.process(data=the_task)  # populate form with task data
+    if request.method == 'GET':
+        the_task['due_date'] = datetime.strptime(the_task['due_date'], '%Y-%m-%d')
+        form.process(data=the_task)  # populate form with task data
     if request.method == 'POST':
         if form.validate_on_submit():
             tasks = mongo.db.tasks
@@ -62,8 +57,6 @@ def edit_task(task_id):
                 }}
             )
             return redirect(url_for('get_tasks'))
-        else:
-            print(form.errors)
 
     return render_template('edittask.html', task=the_task, form=form, categories=mongo.db.categories.find())
 
