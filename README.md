@@ -1,6 +1,7 @@
 # Task manager - Flask App
 
 Simple task manager app built with Flask and MongoDB.
+![image with app view](https://github.com/dejvoss/flask-task-manager/blob/master/mockup.png)
 
 ## Installation
 
